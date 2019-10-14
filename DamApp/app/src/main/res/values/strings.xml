@@ -16,4 +16,20 @@
     <string name="main_nav_home_title">Acasa</string>
     <string name="main_nav_transfer_market_title">Transfer market</string>
     <string name="main_nav_about_title">Despre</string>
+    <string name="input_name_hint">Name</string>
+    <string name="add_player_save">Save</string>
+    <string name="add_player_left_hand">Left Hand</string>
+    <string name="add_player_right_hand">Right Hand</string>
+    <string name="add_player_fav_hand">Favorite Hand</string>
+    <string name="add_player_position">Position</string>
+    <string name="add_player_name_hint">Name</string>
+    <string name="add_player_brithday_hint">Birthday</string>
+    <string name="add_player_number_hint">Number</string>
+
+    <string-array name="add_player_positions_values">
+        <item>Centru</item>
+        <item>Portar</item>
+        <item>Inter</item>
+        <item>Extrema</item>
+    </string-array>
 </resources>
