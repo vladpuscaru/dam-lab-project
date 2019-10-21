@@ -3,7 +3,9 @@ package eu.ase.ro.damapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,7 +13,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import eu.ase.ro.damapp.util.Player;
+
 public class MainActivity extends AppCompatActivity {
+    public static final int REQUEST_CODE_ADD_PLAYER = 200;
+
     private DrawerLayout drawerLayout;
     private FloatingActionButton fabAddPlayer;
 
@@ -53,9 +59,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AddPlayerActivity.class);
-                startActivity(intent);
+//                startActivity(intent);
+                startActivityForResult(intent, REQUEST_CODE_ADD_PLAYER);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_ADD_PLAYER) {
+            if (resultCode == RESULT_OK) {
+                if (data != null) {
+                    Player player = data.getParcelableExtra(AddPlayerActivity.ADD_PLAYER_KEY);
+                    if (player != null) {
+                        Toast.makeText(getApplicationContext(), player.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -25,6 +25,9 @@
     <string name="add_player_name_hint">Name</string>
     <string name="add_player_brithday_hint">Birthday</string>
     <string name="add_player_number_hint">Number</string>
+    <string name="add_player_name_error_message">Numele este gresit</string>
+    <string name="add_player_number_error_message">Numarul este gresit</string>
+    <string name="add_player_date_error_message">Ziua de nastere este gresita. Format corect: dd-MM-yyyy</string>
 
     <string-array name="add_player_positions_values">
         <item>Centru</item>
