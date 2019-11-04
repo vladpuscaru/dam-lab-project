@@ -29,10 +29,23 @@
     <string name="add_player_number_error_message">Numarul este gresit</string>
     <string name="add_player_date_error_message">Ziua de nastere este gresita. Format corect: dd-MM-yyyy</string>
 
+    <string name="transfer_market_btn_goalkeeper">Portar</string>
+    <string name="transfer_market_btn_inter">Inter</string>
+    <string name="transfer_market_btn_center">Centru</string>
+    <string name="transfer_market_btn_winger">Extrema</string>
+    <string name="about_tv_version">V 1.0</string>
+    <string name="about_tv_team">Grupe: 1076, 1077, 1078, 1081, 1082</string>
+    <string name="about_tv_year">Anul 2019</string>
+    <string name="about_tv_application_title">Dam App</string>
+
     <string-array name="add_player_positions_values">
         <item>Centru</item>
         <item>Portar</item>
         <item>Inter</item>
         <item>Extrema</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="adapter_player_no_content" />
 </resources>

@@ -60,15 +60,16 @@ public class AddPlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // validare
-                validate();
-                // construire obiect
-                Player player = createPlayerFromView();
-                Toast.makeText(getApplicationContext(), player.toString(), Toast.LENGTH_LONG).show();
-                // transfer
-                // -- punem pe intent informatia
-                intent.putExtra(ADD_PLAYER_KEY, player);
-                setResult(RESULT_OK, intent);
-                finish();
+                if (validate()) {
+                    // construire obiect
+                    Player player = createPlayerFromView();
+                    Toast.makeText(getApplicationContext(), player.toString(), Toast.LENGTH_LONG).show();
+                    // transfer
+                    // -- punem pe intent informatia
+                    intent.putExtra(ADD_PLAYER_KEY, player);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
             }
         });
     }
