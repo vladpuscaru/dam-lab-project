@@ -20,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import eu.ase.ro.damapp.fragment.Home;
 import eu.ase.ro.damapp.util.Player;
 
 public class AddPlayerActivity extends AppCompatActivity {
@@ -42,6 +43,47 @@ public class AddPlayerActivity extends AppCompatActivity {
         initComponents();
 
         intent = getIntent();
+
+        Bundle bundle = intent.getExtras();
+
+
+        if (bundle != null) {
+            setPlayer((Player)bundle.getParcelable(Home.PLAYER_KEY));
+        }
+    }
+
+    private int getPosPosition(String position) {
+        int pos = -1;
+
+        ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spnPosition.getAdapter();
+
+        for (int i = 0; i < adapter.getCount(); i++) {
+            String spnStr = (String) adapter.getItem(i);
+            if (spnStr == position) {
+                pos = i;
+                break;
+            }
+        }
+
+
+        return pos;
+    }
+
+    private int getHandId(String favHand) {
+        int id = favHand == getString(R.string.add_player_left_hand) ? R.id.add_player_rb_left_hand : R.id.add_player_rb_right_hand;
+        return id;
+    }
+
+    private void setPlayer(Player player) {
+        etName.setText(player.getName());
+        etBirthday.setText(new SimpleDateFormat(AddPlayerActivity.DATE_FORMAT, Locale.US).format(player.getBirthday()));
+        etNumber.setText(String.valueOf(player.getNumber()));
+
+        int position = getPosPosition(player.getPosition());
+        spnPosition.setSelection(position);
+
+        int idHand = getHandId(player.getFavHand());
+        rgFavHand.check(idHand);
     }
 
     private void initComponents() {
